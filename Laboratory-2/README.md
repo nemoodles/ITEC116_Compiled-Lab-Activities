@@ -26,11 +26,11 @@ Finds and removes the user from users_db.
 If successful, it returns the deleted user’s data.
 If the user doesn’t exist, it returns an error message.
 
-Step by step process
+**Step by step process on how this code works**
 **The app starts with a small mock user database.**
 **Users can:**
-Retrieved (all users or a specific user)
-Added (with a unique user ID)
-Updated (changing only the user’s name)
-Deleted (removing a user by ID)
+1. Retrieved (all users or a specific user)
+2. Added (with a unique user ID)
+3. Updated (changing only the user’s name)
+4. Deleted (removing a user by ID)
 **Each request receives a structured JSON response.**
