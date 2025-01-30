@@ -1,4 +1,4 @@
-Explanation of the code
+**Explanation of the code**
 
 This FastAPI application allows users to manage "tasks" using an API. It supports creating, reading, updating, and deleting tasks while requiring an API key for security.
 
