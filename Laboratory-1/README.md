@@ -22,12 +22,12 @@ This activity demonstrates how to create a simple API using FastAPI that calcula
 - Uvicorn (for running the server)
 
 **Expected output**
-If you visit "http://127.0.0.1:8000/factorial/5" the API should return:
-- {
+- If you visit "http://127.0.0.1:8000/factorial/5" the API should return:
+{
   "result": 120
 }
 
-If the input is 0, it will return:
-- {
+- If the input is 0, it will return:
+{
   "result": false
 }
