@@ -10,7 +10,8 @@
 
 **How to run the code**
 1. Ensure you have Python installed (version 3.7+ recommended).
-2. Install FastAPI and Uvicorn (a server for running FastAPI applications):
+2. Install FastAPI and Uvicorn (a server for running FastAPI applications):  " ```sh
+   pip install fastapi uvicorn "
 3. Save the provided Python script as **main.py**.
 4. Run the FastAPI server with this code: **uvicorn main:application --reload**
 5. Access the API using a browser "http://127.0.0.1:8000/factorial/5"
