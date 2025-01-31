@@ -1,26 +1,33 @@
-**Explanation of the code**
+**Laboratory 1: Factorial API using FastAPI**
 
-**This FastAPI application defines an API endpoint that calculates the factorial of a given number.**
+**short description**
+This activity demonstrates how to create a simple API using FastAPI that calculates the factorial of a given number.
 
-The application creates an API using FastAPI.
-It defines a GET endpoint:
-GET /factorial/{starting_number}
-When a user enters a number (starting_number), the function calculates its factorial using a while loop.
-If the number is 0, it returns False instead of 1 (which is an unusual behavior for factorial).
-The result is returned as JSON output.
+**objective of the activity**
+- Understand how to use FastAPI for creating APIs.
+- Learn how to handle dynamic URL parameters in FastAPI.
+- Implement a basic algorithm to compute factorials.
 
+**How to run the code**
+1. Ensure you have Python installed (version 3.7+ recommended).
+2. Install FastAPI and Uvicorn (a server for running FastAPI applications):
+3. Save the provided Python script as **main.py**.
+4. Run the FastAPI server with this code: **uvicorn main:application --reload**
+5. Access the API using a browser "http://127.0.0.1:8000/factorial/5"
+6. The API will return the factorial of the given number in JSON format.
 
-**Code breakdown**
+**Dependencies**
+Python 3.7+
+FastAPI
+Uvicorn (for running the server)
 
-Base Case (if starting_number == 0)
-**If the user enters 0, the function returns:**
-**{"result": False}**
+**Expected output**
+If you visit "http://127.0.0.1:8000/factorial/5" the API should return:
+{
+  "result": 120
+}
 
-Normally, 0! = 1, but this implementation treats 0 differently.
-
-**Factorial Calculation (while loop)**
--Initializes factor = 1
--Loops until starting_number becomes 0
--Multiplies factor by starting_number in each step
--Decreases starting_number by 1
--Returns the final factorial value
+If the input is 0, it will return:
+{
+  "result": false
+}
