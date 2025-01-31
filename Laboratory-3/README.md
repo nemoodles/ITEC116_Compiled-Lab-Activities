@@ -1,26 +1,21 @@
-**This FastAPI application interacts with an external API to retrieve and manipulate posts and comments data. 
-The goal is to learn how to fetch API data, format it, and build new API endpoints using Python.**
+**Laboratory Activity 2: Working with HTTP actions and API parameters**
 
-**Fetching Data from an External API**
-The requests library is used to fetch posts and comments from jsonplaceholders.
-The json module helps convert API responses into Python-friendly data.
+**short description**
+- This activity demonstrates how to create a RESTful API using FastAPI that allows users to perform **CRUD (Create, Read, Update, Delete)** operations on a user database.
+  
+**objective of the activity**
+- Understand how to build a REST API using FastAPI.
+- Learn how to use **query parameters**, **path parameters**, and **request bodies** in API endpoints.
+- Implement CRUD operations for user data management.
 
-**Basic API Endpoints**
-/posts/ → Retrieves all posts or a specific post using a query parameter (postId).
-/comments/ → Retrieves all comments or comments for a specific post using a query parameter (postId).
+**How to run the code**
+1. Ensure you have Python installed (version 3.7+ recommended).
+2. Install FastAPI and Uvicorn:
+3. Save the provided Python script as **main.py**.
+4. Run the FastAPI server with this code: **uvicorn main:app --reload**
+5. Open your browser and navigate to the FastAPI interactive docs: "http://127.0.0.1:8000/docs"
+6. Use tools like **Postman, cURL**, or the interactive docs to test the API endpoints.
 
-**Formatting API Data**
-/formatted_posts/{userID} → Filters posts by userID and returns only the title and body.
-/formatted_comment/{postID} → Fetches comments for a given post and organizes them neatly with commenter_name, email, and comment.
 
-**Creating a New API Endpoint (/detailed_post/{userID})**
-Retrieves all posts from a specific user.
-For each post, it fetches all related comments.
-Returns structured data, combining posts with their respective comments.
+**Expected output**
 
-**Step by step process on how this code works**
-
-1. The API first fetches all posts.
-2. It filters out only those that match the given userID.
-3. For each post, it calls another API to fetch the comments related to that post.
-4. It organizes the data into a structured JSON response.
