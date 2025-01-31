@@ -17,17 +17,17 @@ This activity demonstrates how to create a simple API using FastAPI that calcula
 6. The API will return the factorial of the given number in JSON format.
 
 **Dependencies**
-Python 3.7+
-FastAPI
-Uvicorn (for running the server)
+- Python 3.7+
+- FastAPI
+- Uvicorn (for running the server)
 
 **Expected output**
 If you visit "http://127.0.0.1:8000/factorial/5" the API should return:
-{
+- {
   "result": 120
 }
 
 If the input is 0, it will return:
-{
+- {
   "result": false
 }
