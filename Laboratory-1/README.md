@@ -1,4 +1,4 @@
-**Laboratory 1: Factorial API using FastAPI**
+**Laboratory Activity 1: Introduction to FastAPI**
 
 **short description**
 This activity demonstrates how to create a simple API using FastAPI that calculates the factorial of a given number.
