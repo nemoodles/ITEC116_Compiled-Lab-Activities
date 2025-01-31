@@ -1,21 +1,168 @@
 **Laboratory Activity 4: Advanced API Implementation**
 
-This FastAPI application allows users to manage "tasks" using an API. It supports creating, reading, updating, and deleting tasks while requiring an API key for security.
+**short description**
+- This activity demonstrates how to build a **Task Management API** using **FastAPI**. The API includes CRUD (Create, Read, Update, Delete) operations with authentication using an **API Key** stored in an `.env` file.
+  
+**objective of the activity**
+- Learn how to implement **CRUD operations** in FastAPI.
+- Understand how to use **environment variables** for authentication.
+- Explore the use of **APIRouter** to manage API versions.
+- Implement **API key verification** for secured access.
 
-**Setup & Security**
-Loads an API key from a .env file.
-Checks if the user provides the correct API key in their request headers.
+**files in the repository**
+- `.env`: Stores the API key securely.  
+- `.gitignore`: Excludes sensitive files from version control.  
+- `lab4.py`: The main FastAPI application that provides task management functionality.
+  
+**How to run the code**
+1. Install Dependencies
+   - Ensure you have Python installed (version 3.7+ recommended). Then install the required packages: "```sh
+pip install fastapi uvicorn python-dotenv "
+2. Create a .env File
+   - Ensure you have an .env file with the API key: **echo "LAB_API_KEY=your_secret_api_key" > .env**
+3. Run the FastAPI Server
+   - **uvicorn lab4:app --reload**
+4. Access API Documentation
+   - "http://127.0.0.1:8000/docs"
 
-**Task Database**
-Uses a simple in-memory list (task_db) to store tasks.
-Each task has an ID, title, description, and completion status.
+**API Endpoints**
 
-**CRUD Operations (Create, Read, Update, Delete)**
-GET /v1/file/{task_id} → Get a task by ID.
-POST /v1/file → Create a new task.
-PATCH /v1/file/{task_id} → Update a task.
-DELETE /v1/file/{task_id} → Remove a task.
+**Version 1 (/v1/file)**
 
-**Two API Versions**
-Version 1 (/v1) and Version 2 (/v2) are identical.
-This demonstrates how APIs can evolve over time.
+**GET**
+- /v1/file/{task_id}	
+   - retrieve a task by task_id
+     
+**POST**	
+- /v1/file
+   - Create a new task
+     
+**PATCH**	
+- /v1/file/{task_id}
+  - Update an existing task
+  
+**DELETE**	
+- /v1/file/{task_id}
+  - Delete a task
+
+**Version 2 (/v2/file)**
+
+**GET**
+- /v2/file/{task_id}	
+   - retrieve a task by task_id
+     
+**POST**	
+- /v2/file
+   - Create a new task
+     
+**PATCH**	
+- /v2/file/{task_id}
+  - Update an existing task
+  
+**DELETE**	
+- /v2/file/{task_id}
+  - Delete a task
+
+**Authentication**
+
+All API requests require an API Key in the headers: **X-API-KEY: your_secret_api_key**
+
+**Expected output** 
+
+**GET /v1/file/1 (Retrieve a Task)**
+
+**Request:**
+
+GET http://127.0.0.1:8000/v1/file/1
+
+**Headers:**
+
+X-API-KEY: your_secret_api_key
+
+**Response (If Task Exists):**
+
+{
+  "message": "Task retrieved successfully.",
+  "task": {
+    "task_id": 1,
+    "task_title": "Laboratory Activity",
+    "task_desc": "Create Lab Act 2",
+    "is_finished": false
+  }
+}
+
+**Response (If Task Not Found):**
+
+{
+  "detail": "Task with ID 1 not found."
+}
+
+**POST /v1/file (Create a Task)**
+
+**Request:**
+
+POST http://127.0.0.1:8000/v1/file
+
+**Headers:**
+
+X-API-KEY: your_secret_api_key
+
+**JSON Body:**
+
+{
+  "task_title": "New Task",
+  "task_desc": "This is a test task",
+  "is_finished": false
+}
+
+**Response:**
+
+{
+  "message": "Task successfully created.",
+  "task": {
+    "task_id": 2,
+    "task_title": "New Task",
+    "task_desc": "This is a test task",
+    "is_finished": false
+  }
+}
+
+**PATCH /v1/file/1 (Update a Task)**
+
+**Request:**
+
+PATCH http://127.0.0.1:8000/v1/file/1
+
+**Headers:**
+
+X-API-KEY: your_secret_api_key
+
+**JSON Body:**
+
+{
+  "task_title": "Updated Task",
+  "task_desc": "Updated description",
+  "is_finished": true
+}
+
+**Response:**
+
+{
+  "message": "Task successfully updated."
+}
+
+**DELETE /v1/file/1 (Delete a Task)**
+
+**Request:**
+
+DELETE http://127.0.0.1:8000/v1/file/1
+
+**Headers:**
+
+X-API-KEY: your_secret_api_key
+
+**Response:**
+
+{
+  "message": "Task with ID 1 successfully deleted."
+}
